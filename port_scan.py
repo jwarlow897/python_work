@@ -15,14 +15,14 @@ https://stackoverflow.com/questions/12090503/listing-available-com-ports-with-py
 		# apparently excludes "/dev/tty"
 		ports = glob.glob('/dev/tty[A-Za-z]*')
 	elif sys.platform.startswith('darwin'):
-		ports = glob.glob('/dev/tty.*/)
+		ports = glob.glob('/dev/tty.*/')
 	else:
 		raise EnvironmentError('Unsupported platform')
 		
-	reult = []
+	result = []
 	for port in ports:
 		try:
-			s. = serial.Serial(port)
+			s = serial.Serial(port)
 			s.close()
 			result.append(port)
 		except (OSError, serial.SerialException):
